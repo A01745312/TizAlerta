@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/A01745312/MAZ-alerta-Web/issues"
   },
-  "homepage": "https://github.com/A01745312/MAZ-alerta-Web#readme"
+  "homepage": "https://github.com/A01745312/MAZ-alerta-Web#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
 }
