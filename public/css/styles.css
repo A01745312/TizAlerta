@@ -16,9 +16,14 @@
 /* HTML GENERAL ----------------------------------*/
 html {
     font-size: 62.5%;
-    /*box-sizing: border-box;*/
+    box-sizing: border-box;
     /* Hack para Box Model **/
-    /*scroll-snap-type: y mandatory;*/
+    scroll-snap-type: y mandatory;
+}
+
+header {
+    margin-bottom: 1rem;
+    padding-bottom: 10rem;
 }
 
 body{
@@ -56,10 +61,6 @@ h1{
     background-color: var(--secundario);
 }
 
-.navegacion-principal {
-
-}
-
 .navegacion-principal a {
     background-color: var(--primario);
 }
@@ -70,6 +71,14 @@ h1{
     padding: 1rem;
     width: 30rem;
     float: left;
+}
+
+.tumblaind {
+    /*border: 1px solid */
+    border-radius: 1rem;
+    padding: 1rem;
+    width: 28rem;
+    float: right;
 }
 
 .line {
@@ -105,6 +114,7 @@ h1{
     background-size: cover;
     height: 450px;
     position: relative;
+    margin-top: 1rem;
     margin-bottom: 2rem;
 }
 
