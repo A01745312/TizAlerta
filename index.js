@@ -7,6 +7,7 @@ const path = require('path');
 const express = require('express');
 const req = require('express/lib/request');
 const res = require('express/lib/response');
+const { dirname } = require('path');
 
 // create server
 const app = express();
@@ -18,6 +19,10 @@ app.get('/main',(req, res)=>{
     res.sendFile(path.join(__dirname, 'view', 'prueba.html'));
 });
 
-console.log(path.join(__dirname, 'views', 'prueba.html'));
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, 'view', 'login.html'));
+});
+
+console.log(path.join(__dirname, 'view', 'prueba.html'));
 
 app.listen(8080,()=>console.log("Servidor"));
