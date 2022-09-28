@@ -225,17 +225,8 @@ h1{
 @media screen and (max-width:800px) {
     .ppF .g1{
         width: 90%;
-        max-width: 1200px;
-        margin: auto;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 50px;
-        padding: 45px 0px;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 30px;
+        padding: 35px 0px
     } 
-}
-
-.g1{
-}
-
-.g2{
 }
