@@ -1,3 +1,5 @@
+// cSpell:disable
+
 // Rutas absolutas
 const path = require('path');
 
