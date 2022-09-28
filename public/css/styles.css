@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
 /* Barra de colores*/
 :root {
     --blanco: #ffffff;
@@ -9,6 +11,8 @@
     --verde: rgb(131, 232, 88);
     --morado: rgb(146, 111, 227);
     --naranja: rgb(255, 122, 55);
+    --black: #0a141d;
+    --footer: #0a1a2a;
 
 }
 
@@ -143,4 +147,95 @@ h1{
     align-items: flex-end;
 }
 
+/*Footer*/
 
+*{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+}
+
+.ppF {
+    width: 100%;
+    background-color: var(--black);
+}
+
+.ppF .g1{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
+    padding: 45px 0px;
+
+}
+
+.ppF .g1 .box figure {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ppF .g1 .box figure img {
+    width: 250px;
+}
+
+.ppF .g2 .box h2{
+    color: var(--blanco);
+    margin-bottom: 25px;
+    font-size: 20px;
+}
+
+.ppF .g1 .box p{
+    color: var(--blanco);
+    margin-bottom: 10px;
+}
+
+.ppF .g1 .red-social a{
+    display: inline-block;
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    color: var(--blanco);
+    margin-right: 10px;
+    background-color: var(--black);
+    text-align: center;
+    transition: all 300ms ease;
+}
+
+.ppF .g1 .red-social a:hover{
+    color: var(--secundario);
+}
+
+.ppF .g2{
+    background-color: var(--footer);
+    padding: 15px, 10px;
+    text-align: center;
+    color: var(--blanco);
+}
+
+.ppF .g2 small{
+    font-size: 15px;
+}
+
+@media screen and (max-width:800px) {
+    .ppF .g1{
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 50px;
+        padding: 45px 0px;
+    } 
+}
+
+.g1{
+}
+
+.g2{
+}
