@@ -18,23 +18,33 @@
     <!-- Importamos un tipo de fuente -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100&display=swap" rel="stylesheet">
     <link rel="preload" href="css/styles.css" as="style">
-    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link href="css/login.css" rel="stylesheet" type="text/css">
     <link href="css/normalize.css">
 </head>
 
-<body>
+<body id="log">
 
     <form class="f">
+        
         <h2 class="ft"> Iniciar Sesión</h2>
         
         <section class="fc">
-            <!-------------------------------------------------------- Usuario-->
+            <!-------------------------------------------------------- Usuario --->
             <div class="fg">
-                <input type="text" id="name" class="fi" placeholder=" ">
-                <label for="name" class="fl"> Usuario: </label>
+                <input type="text" id="user" class="fi" placeholder=" ">
+                <label for="name" class="flabel"> Usuario: </label>
                 <span class="fl"></span>
             </div>
-            <div></div>
+            <!-------------------------------------------------------------------->
+            <!-------------------------------------------------------- Password -->
+            <div class="fg">
+                <input type="text" id="password" class="fi" placeholder=" ">
+                <label for="name" class="flabel"> Contraseña: </label>
+                <span class="fl"></span>
+            </div>
+            <!------------------------------------------------------------------->
+
+            <input type="submit" class="fs" value="Entrar">
         </section>
     </form>
     
