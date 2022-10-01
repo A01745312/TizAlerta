@@ -14,17 +14,17 @@
     --naranja: rgb(255, 122, 55);
     --black: #0a141d;
     --footer: #0a1a2a;
+    --forms: #5757577e;
+    --azulMarino: #183aff;
 
 }
 
 /*  Globales **/
 /* HTML GENERAL ----------------------------------*/
-html {
-    font-size: 62.5%;
-    box-sizing: border-box;
-    /* Hack para Box Model **/
-    scroll-snap-type: y mandatory;
-}
+
+
+
+
 
 header {
     margin-bottom: 1rem;
@@ -35,9 +35,11 @@ body {
     font-size: 16px;
     font-family: 'Montserrat', sans-serif;
     background-color: #298faf;
-    background-image: radial-gradient(#14686a 2px, transparent 2px), radial-gradient(#14686a 2px, #298faf 2px);
-    background-size: 80px 80px;
-    background-position: 0 0, 40px 40px;
+    /*opacity: 0.7;*/
+    background-image: radial-gradient(#14686a 2px, #298faf 2px);
+    background-size: 40px 40px;
+    display: flex;
+    min-height: 100vh;
 }
 
 h1 {
@@ -226,6 +228,86 @@ h1 {
 
 .ppF .g2 small {
     font-size: 15px;
+}
+
+.f {
+    background-color: var(--blanco);
+    text-align: center;
+    margin: auto;
+    width: 90%;
+    max-width: 400px;
+    padding: 4.5em 3em;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px -5px var(--black/ 30%);
+}
+
+.ft {
+    font-size: 2rem;
+    margin-bottom: .5em;
+}
+
+.fc {
+    margin-top: 3em;
+    display: grid;
+    gap: 2.5em;
+}
+
+.fg {
+    position: relative;
+    color: var(--forms);
+}
+
+.fi {
+    width: 100%;
+    background: none;
+    color: var(--gris);
+    font-size: 1rem;
+    border: none; /*Elimina bordes de las cajas*/
+    outline: none; /*Desaparece el borde de caja al hacer un input*/
+    border-bottom: 1px solid var(--black);
+    /*Es posible cambiar la fuente */
+}
+
+.fi:focus + .flabel, .flabel, .fi:not(:placeholder-shown) + .flabel {
+    transform: translateY(-12px) scale(.7);
+    transform-origin: left top;
+    color: var(--secundario);
+}
+
+.flabel {
+    color: var(--black);
+    cursor: pointer; /*Cursor para escribir*/
+    position: absolute;
+    top: 0;
+    left: 5px;
+    transform: translateY(-3px);
+    transition: transform .5s, color .3s; /*Cambiar el texto a entrada*/
+
+}
+
+.fs {
+    background: var(--azulMarino);
+    color: var(--blanco);
+    font-weight: 300;
+    font-size: 1rem;
+    padding: .8em 0;
+    border: none;
+    border-radius: .5em;
+}
+
+.fl{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--oscuro);
+}
+
+@media (max-width:425px) {
+    .ft{
+        font-size: 1.8rem;
+    }
 }
 
 @media screen and (max-width:800px) {
