@@ -118,6 +118,7 @@ h1{
     }
 }
 
+
 /* Hero */
 .hero {
     background-image: url(../img/Atizapan.jfif);
@@ -235,5 +236,12 @@ h1{
         grid-template-columns: repeat(1, 1fr);
         grid-gap: 30px;
         padding: 35px 0px
-    } 
+    }
+    
+    .tumblaind {
+        border-radius: 0rem;
+        padding: 0rem;
+        width: 0rem;
+        float: right;
+    }
 }
