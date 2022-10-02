@@ -23,6 +23,10 @@ app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, 'view', 'login.html'));
 });
 
+app.get('/reportar', (req, res) => {
+    res.sendFile(path.join(__dirname, 'view', 'report.html'));
+});
+
 console.log(path.join(__dirname, 'view', 'prueba.html'));
 
 app.listen(8080,()=>console.log("Servidor"));

@@ -4,9 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>AtizAlerta App Report</title>
 </head>
 <body>
+    <div class="hero-evolution">
+        <form>
+    <!---------------------------------------------------- Nombre de notificación-->        
+            <div class="inGrup">
+                <input type="text" id="Nombre" required>
+                <label for="">Título de Notificación: </label>
+            </div>
+    <!-------------------------------------------------------------------------------->
+    
+    <!---------------------------------------------------- Tipo de notificación-->
+            <div class="inGrup">
+                <input type="text" id="_suceso" required>
+                <label for="">Tipo de Notificación: </label>
+                <div class="custom-select">
+                    <select>
+                        <option value="terremoto">Terremoto</option>
+                        <option value="inundacion">Inundación</option>
+                        <option value="incendio">Incendio</option>
+                        <option value="choque">choque</option>
+                    </select>
+                </div>
+            </div>
+    <!-------------------------------------------------------------------------------->
+
+    <!------------------------------------------------------ Id de notificación-->
+            <div class="inGrup">
+                <input type="text" id="Id_suceso" required>
+                <label for="">Título de Notificación: </label>
+            </div>
+    
+    <!---------------------------------------------------- Descripción-->
+            <div class="inGrup">
+                <input type="text" id="Descripcion" required>
+                <label for="descripcion">Descripcion: </label>
+            </div>
+    <!-------------------------------------------------------------------------------->
+            <button type="submit">Enviar</button>
+    
+        </form>
+
+    </div>
     
 </body>
 </html>
