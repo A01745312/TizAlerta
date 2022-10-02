@@ -18,6 +18,12 @@
 
 /*  Globales **/
 /* HTML GENERAL ----------------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 html {
     font-size: 62.5%;
     box-sizing: border-box;
@@ -30,7 +36,7 @@ header {
     padding-bottom: 10rem;
 }
 
-body{
+body {
     font-size: 16px;
     font-family: 'Montserrat', sans-serif;
 }
@@ -155,14 +161,102 @@ h1{
     align-items: flex-end;
 }
 
-/*---------------------------------------------------------------------Footer*/
-
-*{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+/* Cards ------------------------------------*/
+.cempo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    min-width: 100vh;
+}
+.grid {
+    display: grid;
+    width: 114em;    /*Lados */
+    grid-gap: 6rem;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    align-items: start;
 }
 
+.grid-item {
+    background-color: var(--secundario);
+    border-radius: 0.4rem;
+    overflow: hidden;
+    box-shadow: 0 3rem 6rem var(--primario);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.grid-item:hover {
+    transform: translate(-0.5%);
+    box-shadow: 0 4rem 8rem var(--black);
+}
+
+.cImage {
+    display: block;
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+}
+
+.cContent {
+    padding: 3rem;
+}
+
+.c-head {
+    font-size: 3rem;
+    font-weight: 500;
+    color: var(--black);
+    margin-bottom: 1.5rem;
+}
+
+.cText {
+    font-size: 1.6rem;
+    letter-spacing: 0.1rem;
+    line-height: 1.7;
+    color: #0097A7;
+    margin-bottom: 2.5rem;
+}
+
+.card-btn {
+    display: block;
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 2rem;
+    text-align: center;
+    color: var(--verde);
+    background-color: var(--morado);
+    border: none;
+    border-radius: 0.4rem;
+    transition: 0.2s;
+    cursor: pointer;
+    letter-spacing: 0.1rem;
+}
+
+.card-btn span {
+    margin-left: 1rem;
+    transition: 0.2s;
+}
+
+.card-btn:hover, .card-btn:active {
+    background-color: var(--gris);
+}
+
+.card-btn:hover span, .card-btn:active span {
+    margin-left: 1.5rem;
+}
+
+@media screen and (max-width:800px) {
+    .cempo {
+        padding: 3rem;
+    }
+
+    .grid {
+        grid-gap: 3rem;
+    }
+    
+}
+
+/*---------------------------------------------------------------------Footer*/
 .ppF {
     width: 100%;
     background-color: var(--black);
@@ -230,6 +324,7 @@ h1{
     font-size: 15px;
 }
 
+/*---------------------------------------------------Responsive Footer*/
 @media screen and (max-width:800px) {
     .ppF .g1{
         width: 90%;
