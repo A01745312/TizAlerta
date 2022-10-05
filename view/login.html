@@ -48,6 +48,23 @@
             <!------------------------------------------------------------------->
 
             <input type="submit" class="fs" value="Entrar">
+
+            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+            <if(typeof alert != "undefined"){ >
+                <script>
+                    Swal.fire({
+                        title: '<%= alertTitle %>',
+                        text: '<%= alertMessage %>',
+                        icon: '<%= alertIcon %>',
+                        showConfirmButton: <%= showConfirmButton %> ,
+                        timer: <%= timer %>
+                        }).then(()=>{
+                            window.location='/<%= ruta %>'
+                        })
+                </script>
+
+
         </section>
     </form>
     
