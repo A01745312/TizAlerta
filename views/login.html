@@ -26,7 +26,7 @@
 
 <body id="log">
 
-    <form class="f"> <!--Formulario-->
+    <form class="f" action="/login" method="post"> <!--Formulario-->
         <h1 class="ft"> TizAlerta ! </h1>
         <h2 class="ft"> Iniciar Sesión</h2> <!-- Título -->
 
@@ -34,20 +34,20 @@
         <section class="fc"> <!-- Container -->
             <!-------------------------------------------------------- Usuario --->
             <div class="fg">
-                <input type="text" id="user" class="fi" placeholder=" ">
+                <input type="text" id="user" class="fi" placeholder=" " name="user"required>
                 <label for="name" class="flabel"> Usuario: </label>
                 <span class="fl"></span>
             </div>
             <!-------------------------------------------------------------------->
             <!-------------------------------------------------------- Password -->
             <div class="fg">
-                <input type="password" id="password" class="fi" placeholder=" ">
+                <input type="password" id="password" class="fi" placeholder=" " name = "password" required>
                 <label for="name" class="flabel"> Contraseña: </label>
                 <span class="fl"></span>
             </div>
             <!------------------------------------------------------------------->
 
-            <input type="submit" class="fs" value="Entrar">
+            <button type="submit"> Entrar</button>
 
             <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     

@@ -8,6 +8,7 @@ const express = require('express');
 const { dirname } = require('path');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
+const { get } = require('http');
 
 // create server
 const app = express();
@@ -37,30 +38,37 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
 
+app.engine('html',require('ejs').renderFile);
+app.set('view engine', 'ejs');
+
 
 // Rutas asignadas
 
 app.get('/main',(req, res)=>{
-    res.sendFile(path.join(__dirname, 'view', 'prueba.html'));
+    res.sendFile(path.join(__dirname, 'views', 'prueba.html'));
 });
 
 app.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, 'view', 'login.html'));
+    res.sendFile(path.join(__dirname, 'views', 'login.html'));
 });
 
 app.get('/reportes', (req, res) => {
-    res.sendFile(path.join(__dirname, 'view', 'report.html'));
+    res.sendFile(path.join(__dirname, 'views', 'report.html'));
 });
 
-console.log(path.join(__dirname, 'view', 'prueba.html'));
+console.log(path.join(__dirname, 'views', 'prueba.html'));
 
 
 app.post("/login", (req, res) => {
-    const usuario = req.body.Matricula;
-    const contraseña = req.body.Contraseña;
+    const usuario = req.body.user;
+    const contraseña = req.body.password;
+    /* connection.query('SELECT * FROM usuario WHERE Matricula = ?', [usuario] , (error,results) =>{
+    console.log(results);}) */
     if(usuario && contraseña){
+        console.log('Empezando la conexión')
         connection.query('SELECT * FROM usuario WHERE Matricula = ?',[usuario], (error,results) =>{
         console.log(results);
+        app.get("/main")
         if (results==0){
             res.render ('login.html' , {
                 alert: true,
