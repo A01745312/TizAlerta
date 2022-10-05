@@ -102,7 +102,7 @@ app.post("/login", (req, res) => {
                         alertIcon: 'success',
                         showConfirmButton: false,
                         timer: 1500,
-                        ruta: 'main'
+                        ruta: 'reportes'
                     })
                 
             }}
