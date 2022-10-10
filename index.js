@@ -1,4 +1,3 @@
-// cSpell:disable
 
 // Rutas absolutas
 const path = require('path');
@@ -11,27 +10,26 @@ const mysql = require('mysql');
 const { get } = require('http');
 const cookieParser = require('cookie-parser');
 
+
+
 // create server
 const app = express();
 
-global.config = require('./config')
 
-
-app.locals = global.config;
 
 // Connect Database
 
-/* const connection = mysql.createConnection({
+ const connection = mysql.createConnection({
     host: "localhost",
     database: 'desarrollo_movil',
     password: '',
     user: 'root'
-}); */
+});
 
-/* connection.connect((error) => {
+connection.connect((error) => {
   if (error) throw error;
   console.log("Connected to database " );
-}); */
+});
 
 
 
@@ -42,9 +40,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cookieParser())
 
-
 app.engine('html',require('ejs').renderFile);
-app.set('view engine', 'ejs', 'global.config.site.html.engine');
+app.set('view engine', 'ejs');
 
 
 // Rutas asignadas
