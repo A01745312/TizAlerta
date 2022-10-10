@@ -9,25 +9,29 @@ const { dirname } = require('path');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const { get } = require('http');
+const cookieParser = require('cookie-parser');
 
 // create server
 const app = express();
 
+global.config = require('./config')
 
+
+app.locals = global.config;
 
 // Connect Database
 
-const connection = mysql.createConnection({
+/* const connection = mysql.createConnection({
     host: "localhost",
     database: 'desarrollo_movil',
     password: '',
     user: 'root'
-});
+}); */
 
-connection.connect((error) => {
+/* connection.connect((error) => {
   if (error) throw error;
   console.log("Connected to database " );
-});
+}); */
 
 
 
@@ -36,10 +40,11 @@ connection.connect((error) => {
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(cookieParser())
 
 
 app.engine('html',require('ejs').renderFile);
-app.set('view engine', 'ejs');
+app.set('view engine', 'ejs', 'global.config.site.html.engine');
 
 
 // Rutas asignadas
@@ -60,7 +65,7 @@ console.log(path.join(__dirname, 'views', 'prueba.html'));
 
 
 app.post("/login", (req, res) => {
-    const usuario = req.body.user;
+    var usuario = req.body.user;
     const contraseña = req.body.password;
     /* connection.query('SELECT * FROM usuario WHERE Matricula = ?', [usuario] , (error,results) =>{
     console.log(results);}) */
@@ -110,6 +115,10 @@ app.post("/login", (req, res) => {
         })
     }}
 );
+
+
+
+
 
 
 // Conexión a servidor nodemon
