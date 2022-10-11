@@ -62,15 +62,15 @@ console.log(path.join(__dirname, 'views', 'prueba.html'));
 
 
 app.post("/login", (req, res) => {
-    var usuario = req.body.user;
+    const usuario = req.body.user;
     const contraseña = req.body.password;
+    const id_usuario = 0
     /* connection.query('SELECT * FROM usuario WHERE Matricula = ?', [usuario] , (error,results) =>{
     console.log(results);}) */
     if(usuario && contraseña){
         console.log('Empezando la conexión')
         connection.query('SELECT * FROM usuario WHERE Matricula = ?',[usuario], (error,results) =>{
         console.log(results);
-        app.get("/main")
         if (results==0){
             res.render ('login.html' , {
                 alert: true,
@@ -84,6 +84,7 @@ app.post("/login", (req, res) => {
         }
         else{
             const pass = results[0].Contraseña;
+            const id_usuario = results[0].Id_usurio;
 
             if(contraseña != pass){
                 res.render ('login.html' , {
@@ -108,7 +109,6 @@ app.post("/login", (req, res) => {
                     })
                 
             }}
-                
         })
     }}
 );
