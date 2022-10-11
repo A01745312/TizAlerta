@@ -26,44 +26,62 @@
 </head>
 <body>
     <div class="hero-evolution">
-        <form>
+        <form action="/reportes" method="post">
     <!---------------------------------------------------- Nombre de notificación-->        
             <div class="inGrup">
-                <input type="text" id="Nombre" required>
                 <label for="">Título de Notificación: </label>
+                <input type="text" id="notificacion" required>
+                <span class="fl"></span>
+                
             </div>
     <!-------------------------------------------------------------------------------->
     
     <!---------------------------------------------------- Tipo de notificación-->
             <div class="inGrup">
-                <input type="text" id="_suceso" required>
-                <label for="">Tipo de Notificación: </label>
-                <div class="custom-select">
-                    <select>
-                        <option value="select">-</option>
-                        <option value="terremoto">Terremoto</option>
-                        <option value="inundacion">Inundación</option>
-                        <option value="incendio">Incendio</option>
-                        <option value="choque">choque</option>
-                    </select>
-                </div>
+                
+                <label for="" class="flabel">Tipo de Notificación: </label>
+                <input type="text" required>
+                <span class="fl"></span>
+            </div>
+            <div class="custom-select">
+                <select class="dropdown" id="tipo" name="type">
+                    <option value="select">-</option>
+                    <option value="sismo">Sismo</option>
+                    <option value="inundacion">Inundacion</option>
+                    <option value="clima">Clima</option>
+                </select>
             </div>
     <!-------------------------------------------------------------------------------->
 
-    <!------------------------------------------------------ Id de notificación-->
-            <div class="inGrup">
-                <input type="text" id="Id_suceso" required>
-                <label for="">Título de Notificación: </label>
-            </div>
+
     
     <!---------------------------------------------------- Descripción-->
             <div class="inGrup">
-                <textarea id="Descripcion" rows="8" required>
-                <label for="descripcion"> Descripcion: </label>
+                <label for="descripcion" class="flabel"> Descripcion: </label>
+                <textarea id="descripcion" rows="8" required></textarea>
+                
             </div>
     <!-------------------------------------------------------------------------------->
             <button type="submit">Enviar</button>
+
+
+
+            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
+            <if(typeof alert != "undefined"){ >
+                <script>
+                    Swal.fire({
+                        title: '<%= alertTitle %>',
+                        text: '<%= alertMessage %>',
+                        icon: '<%= alertIcon %>',
+                        showConfirmButton: <%= showConfirmButton %> ,
+                        timer: <%= timer %>
+                        }).then(()=>{
+                            window.location='/<%= ruta %>'
+                        })
+                </script>
+
+                
         </form>
 
     </div>

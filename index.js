@@ -21,7 +21,7 @@ const app = express();
 
  const connection = mysql.createConnection({
     host: "localhost",
-    database: 'desarrollo_movil',
+    database: 'tizalertap',
     password: '',
     user: 'root'
 });
@@ -61,10 +61,21 @@ app.get('/reportes', (req, res) => {
 console.log(path.join(__dirname, 'views', 'prueba.html'));
 
 
+
+let fecha_hora = new Date();
+const fecha = fecha_hora.getFullYear() + '-' + fecha_hora.getMonth() + '-' + fecha_hora.getDate()
+const hora = fecha_hora.getHours() + ':' + fecha_hora.getMinutes() + ':' + fecha_hora.getSeconds()
+
+
+
+
+
+/* ------------------ LOGIN -------------------- */
+
+
 app.post("/login", (req, res) => {
     const usuario = req.body.user;
     const contraseña = req.body.password;
-    const id_usuario = 0
     /* connection.query('SELECT * FROM usuario WHERE Matricula = ?', [usuario] , (error,results) =>{
     console.log(results);}) */
     if(usuario && contraseña){
@@ -83,9 +94,8 @@ app.post("/login", (req, res) => {
             })
         }
         else{
-            const pass = results[0].Contraseña;
-            const id_usuario = results[0].Id_usurio;
-
+            const pass = results[0].contraseña;
+            const id_usuario = results[0].id;
             if(contraseña != pass){
                 res.render ('login.html' , {
                     alert: true,
@@ -98,6 +108,17 @@ app.post("/login", (req, res) => {
                 })
                 console.log('Usuario incorrecto');
             }else{
+                    /*console.log(fecha)   // BORRAR
+                    console.log(hora)   // BORRAR
+                    console.log(id_usuario) // BORRAR 
+                    
+                    */
+                    // NO DEJAR LOS CONSOLE LOG
+                    connection.query('INSERT INTO entrada SET ?', {
+                        id_usuario: id_usuario,
+                        fecha: fecha,
+                        hora: hora
+                    })
                     res.render ('login.html' , {
                         alert: true,
                         alertTitle: "Login",
@@ -114,7 +135,54 @@ app.post("/login", (req, res) => {
 );
 
 
+/* ------------------ REPORTES -------------------- */
 
+app.post("/reportes", (req,res) => {
+    const titulo = req.body.Nombre;
+    const descripcion = req.body.descripcion;
+    const tipo = req.body.tipo;
+    /*query_id_usuario = connection.query('SELECT * FROM entrada ORDER BY id DESC', (error, results) =>{
+        id_usuario = results[0].id_usuario;
+        console.log(id_usuario)
+    })*/
+    console.log(descripcion)
+    if (tipo == "sismo"){
+        query_id_usuario = connection.query('SELECT * FROM entrada ORDER BY id DESC', (error, results))
+        id_usuario = results[0].id_usuario;
+        console.log(id_usuario)
+        connection.query('INSERT INTO notificacion SET ?'), {
+            id_suceso: 1,
+            //id_usuario: ,
+            fecha: fecha,
+            hora: hora,
+            titulo: titulo,
+            descripcion: descripcion
+        }
+        res.render ('login.html' , {
+            alert: true,
+            alertTitle: "Sent",
+            alertMessage: "Successful Welcome!",
+            alertIcon: 'success',
+            showConfirmButton: false,
+            timer: 1500,
+            ruta: 'main'
+        })
+    }else if (tipo == "inundacion"){
+        query_id_usuario = connection.query('SELECT * FROM entrada ORDER BY id DESC', (error, results))
+        id_usuario = results[0].id_usuario;
+        console.log(id_usuario)
+        connection.query('INSERT INTO notificacion SET ?'), {
+            id_suceso: 2,
+            id_usuario: id_usuario,
+            fecha: fecha,
+            hora: hora,
+            titulo: titulo,
+            descripcion: descripcion
+        }
+        app.get("/main")
+    }
+
+});
 
 
 
