@@ -27,21 +27,17 @@ const hora = fecha_hora.getHours() + ':' + fecha_hora.getMinutes() + ':' + fecha
 
 
 const getLogin = (req, res) => {
+    console.log(path.join(__dirname, 'views', 'login.html'))
     res.sendFile(path.join(__dirname, 'views', 'login.html'));
 }
 
-const postLogin = async (req, res) => {
-    
+const postLogin =  (req, res) => {
     const usuario = req.body.user;
     const contraseña = req.body.password;
     console.log(usuario)
-    const result = await DBConnect.query('SELECT * FROM usuario WHERE Matricula = ?',[usuario], (error,results) => {
-        console.log(results)
-    })
-    res.json(result)
     if(usuario && contraseña){
         console.log('Empezando la conexión')
-        DBConnect.query('SELECT * FROM usuario WHERE Matricula = ?',[usuario], (error,results) =>{
+        DBConnect.query('SELECT * FROM usuario WHERE matricula = ?',[usuario], (error,results) =>{
         console.log(results);
         if (results==0){
             res.render ('login.html' , {

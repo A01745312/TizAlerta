@@ -1,5 +1,5 @@
 const mysql = require('mysql')
-const { createPool } = require('mysql2/promise')
+const { createPool } = require('mysql2')
 
 const DBConnect = createPool({   
         host: "localhost",
@@ -9,6 +9,9 @@ const DBConnect = createPool({
     })
 
 console.log('CONEXIÓN DATABASE')
+
+matriculas = DBConnect.query('SELECT matricula FROM usuario')
+console.log(matriculas)
 
 module.exports = {DBConnect}
 

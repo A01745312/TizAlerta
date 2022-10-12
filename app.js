@@ -1,6 +1,5 @@
 require('dotenv').config()
 
-const { DBConnect } = require('./config/mysql')
 const express = require('express');
 const cors = require('cors')
 
@@ -11,7 +10,6 @@ const PORT = process.env.PORT || 8080
 
 // ******* LLAMA ARCHIVO DE CONEXIÓN CON BD ***********
 //const {DBConnect} = require('./config/mysql')
-
 
 
 // ********* CREANDO SERVIDOR  **********
@@ -26,35 +24,18 @@ app.use(express.json())
 app.use('/tizalerta', require('./app/routes'))
 
 
-
-// ***************  LLAMA FUNCIÓN DE CONEXIÓN CON BD  *************
-
-//DBConnect()
-
 // ************** VERIFICAR CONEXIÓN CON SERVIDOR  ***************
 
 app.listen(PORT,()=> {
     console.log("Servidor en línea")
 })
 
+
+
+/* ---------------------------------------------------------------------------------------------------------------  */
+
+
 /*
-
-// Rutas asignadas
-
-app.get('/main',(req, res)=>{
-    res.sendFile(path.join(__dirname, 'views', 'prueba.html'));
-});
-
-app.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'login.html'));
-});
-
-app.get('/reportes', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'report.html'));
-});
-
-console.log(path.join(__dirname, 'views', 'prueba.html'));
-
 
 
 let fecha_hora = new Date();

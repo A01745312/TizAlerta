@@ -27,6 +27,7 @@ const hora = fecha_hora.getHours() + ':' + fecha_hora.getMinutes() + ':' + fecha
 
 
 const getReportes = (req, res) => {
+    console.log(path.join(__dirname, 'views', 'report.html'))
     res.sendFile(path.join(__dirname, 'views', 'report.html'));
 }
 
