@@ -2,7 +2,10 @@ require('dotenv').config()
 
 const express = require('express');
 const cors = require('cors')
-
+const bodyParser = require('body-parser')
+const path = require('path')
+const { get } = require('http');
+const { DBConnect } = require('./config/mysql');
 
 // ********  PUERTO  *********
 const PORT = process.env.PORT || 8080
@@ -21,7 +24,9 @@ const app = express();
 
 app.use(cors());
 app.use(express.json())
-app.use('/tizalerta', require('./app/routes'))
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 // ************** VERIFICAR CONEXIÓN CON SERVIDOR  ***************
@@ -34,8 +39,26 @@ app.listen(PORT,()=> {
 
 /* ---------------------------------------------------------------------------------------------------------------  */
 
+app.engine('html',require('ejs').renderFile);
+app.set('view engine', 'ejs');
 
-/*
+
+// Rutas asignadas
+
+app.get('/main',(req, res)=>{
+    res.sendFile(path.join(__dirname, 'views', 'prueba.html'));
+});
+
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'login.html'));
+});
+
+app.get('/reportes', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'report.html'));
+});
+
+console.log(path.join(__dirname, 'views', 'prueba.html'));
+
 
 
 let fecha_hora = new Date();
@@ -46,15 +69,17 @@ const hora = fecha_hora.getHours() + ':' + fecha_hora.getMinutes() + ':' + fecha
 
 
 
-/* ------------------ LOGIN -------------------- /
+/* ------------------ LOGIN -------------------- */
 
 
 app.post("/login", (req, res) => {
     const usuario = req.body.user;
     const contraseña = req.body.password;
+    /* connection.query('SELECT * FROM usuario WHERE Matricula = ?', [usuario] , (error,results) =>{
+    console.log(results);}) */
     if(usuario && contraseña){
         console.log('Empezando la conexión')
-        connection.query('SELECT * FROM usuario WHERE Matricula = ?',[usuario], (error,results) =>{
+        DBConnect.query('SELECT * FROM usuario WHERE Matricula = ?',[usuario], (error,results) =>{
         console.log(results);
         if (results==0){
             res.render ('login.html' , {
@@ -86,9 +111,9 @@ app.post("/login", (req, res) => {
                     console.log(hora)   // BORRAR
                     console.log(id_usuario) // BORRAR 
                     
-                    /
+                    */
                     // NO DEJAR LOS CONSOLE LOG
-                    connection.query('INSERT INTO entrada SET ?', {
+                    DBConnect.query('INSERT INTO entrada SET ?', {
                         id_usuario: id_usuario,
                         fecha: fecha,
                         hora: hora
@@ -109,7 +134,7 @@ app.post("/login", (req, res) => {
 );
 
 
-/* ------------------ REPORTES -------------------- /
+/* ------------------ REPORTES -------------------- */
 
 app.post("/reportes", (req,res) => {
     const titulo = req.body.Nombre;
@@ -118,13 +143,13 @@ app.post("/reportes", (req,res) => {
     /*query_id_usuario = connection.query('SELECT * FROM entrada ORDER BY id DESC', (error, results) =>{
         id_usuario = results[0].id_usuario;
         console.log(id_usuario)
-    })/
+    })*/
     console.log(descripcion)
     if (tipo == "sismo"){
-        query_id_usuario = connection.query('SELECT * FROM entrada ORDER BY id DESC', (error, results))
+        query_id_usuario = DBConnect.query('SELECT * FROM entrada ORDER BY id DESC', (error, results))
         id_usuario = results[0].id_usuario;
         console.log(id_usuario)
-        connection.query('INSERT INTO notificacion SET ?'), {
+        DBConnect.query('INSERT INTO notificacion SET ?'), {
             id_suceso: 1,
             //id_usuario: ,
             fecha: fecha,
@@ -157,6 +182,7 @@ app.post("/reportes", (req,res) => {
     }
 
 });
-*/
+
+
 
 

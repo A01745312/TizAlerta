@@ -1,7 +1,7 @@
 const mysql = require('mysql')
-const { createPool } = require('mysql2')
+const { createPool } = require('mysql2/promise')
 
-const DBConnect = createPool({   
+const DBConnect = mysql.createPool({   
         host: "localhost",
         database: 'tizalertap',
         password: '',
@@ -10,8 +10,9 @@ const DBConnect = createPool({
 
 console.log('CONEXIÓN DATABASE')
 
-matriculas = DBConnect.query('SELECT matricula FROM usuario')
-console.log(matriculas)
+DBConnect.query('SELECT * FROM usuario', (err, results) => {
+    console.log(' ***** Primer registro desde archivo  "mysql.js" *****\n', results[0], '\n Termina archivo mysql.js \n' )
+})
 
 module.exports = {DBConnect}
 
