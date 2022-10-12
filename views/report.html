@@ -26,17 +26,17 @@
 </head>
 <body>
     <div class="hero-evolution">
-        <form action="/reportes" method="post">
-    <!---------------------------------------------------- Nombre de notificación-->        
+        <form action="/reportes" method="post"> <!--
+    !---------------------------------------------------- Nombre de notificación--        
             <div class="inGrup">
                 <label for="">Título de Notificación: </label>
                 <input type="text" id="notificacion" required>
                 <span class="fl"></span>
                 
             </div>
-    <!-------------------------------------------------------------------------------->
+    !--------------------------------------------------------------------------------
     
-    <!---------------------------------------------------- Tipo de notificación-->
+    !---------------------------------------------------- Tipo de notificación--
             <div class="inGrup">
                 
                 <label for="" class="flabel">Tipo de Notificación: </label>
@@ -51,17 +51,31 @@
                     <option value="clima">Clima</option>
                 </select>
             </div>
-    <!-------------------------------------------------------------------------------->
+    !--------------------------------------------------------------------------------
 
 
     
-    <!---------------------------------------------------- Descripción-->
+    !---------------------------------------------------- Descripción--
             <div class="inGrup">
                 <label for="descripcion" class="flabel"> Descripcion: </label>
                 <textarea id="descripcion" rows="8" required></textarea>
                 
             </div>
-    <!-------------------------------------------------------------------------------->
+    !-------------------------------------------------------------------------------- -->
+
+    <label for="nameUsuario">Full Name</label>
+    <input type="text" class="form-control" id="notificacion" name="notificacion" placeholder="noti" required>
+    <label for="userUsuario">User name:</label>
+    <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="desc" required>
+    <label for="genderUser">Gender: </label>
+    <select class = "dropdown" id="tipo" name="tipo" required >
+        <option>Select gender</option>
+        <option value="sismo">Female</option>
+        <option value="Male">Male</option>
+        <option value="Non-binary">Non-binary</option>
+        <option value="Other">Other</option>
+        <option value="Prefer not to say">I prefer not to say</option>
+    </select>
             <button type="submit">Enviar</button>
 
 
@@ -79,8 +93,8 @@
                         }).then(()=>{
                             window.location='/<%= ruta %>'
                         })
+                       
                 </script>
-
                 
         </form>
 

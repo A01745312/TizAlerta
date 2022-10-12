@@ -137,27 +137,29 @@ app.post("/login", (req, res) => {
 /* ------------------ REPORTES -------------------- */
 
 app.post("/reportes", (req,res) => {
-    const titulo = req.body.Nombre;
+    const titulo = req.body.notificacion;
     const descripcion = req.body.descripcion;
     const tipo = req.body.tipo;
+    console.log(titulo, descripcion, tipo, fecha, hora)
     /*query_id_usuario = connection.query('SELECT * FROM entrada ORDER BY id DESC', (error, results) =>{
         id_usuario = results[0].id_usuario;
         console.log(id_usuario)
     })*/
     console.log(descripcion)
     if (tipo == "sismo"){
-        query_id_usuario = DBConnect.query('SELECT * FROM entrada ORDER BY id DESC', (error, results))
-        id_usuario = results[0].id_usuario;
-        console.log(id_usuario)
-        DBConnect.query('INSERT INTO notificacion SET ?'), {
+        query_id_entrada = DBConnect.query('SELECT * FROM entrada ORDER BY id DESC', (error, results) => {
+            id_entrada = results[0].id;
+            console.log(id_entrada)
+        
+        DBConnect.query('INSERT INTO notificacion SET ?', {
             id_suceso: 1,
-            //id_usuario: ,
+            id_entrada: id_entrada,
             fecha: fecha,
             hora: hora,
             titulo: titulo,
             descripcion: descripcion
-        }
-        res.render ('login.html' , {
+        }),
+        res.render ('report.html' , {
             alert: true,
             alertTitle: "Sent",
             alertMessage: "Successful Welcome!",
@@ -166,21 +168,9 @@ app.post("/reportes", (req,res) => {
             timer: 1500,
             ruta: 'main'
         })
-    }else if (tipo == "inundacion"){
-        query_id_usuario = connection.query('SELECT * FROM entrada ORDER BY id DESC', (error, results))
-        id_usuario = results[0].id_usuario;
-        console.log(id_usuario)
-        connection.query('INSERT INTO notificacion SET ?'), {
-            id_suceso: 2,
-            id_usuario: id_usuario,
-            fecha: fecha,
-            hora: hora,
-            titulo: titulo,
-            descripcion: descripcion
-        }
-        app.get("/main")
-    }
 
+    })
+    }
 });
 
 
