@@ -1,18 +1,13 @@
 const express = require('express')
 const router = express.Router()
 //const {checkOrigin} = require('../middleware/origin')
-const {getItems, getItem, createItem,updateItem, deleteItem} = require('../controller/login')
+const {getLogin, postLogin} = require('../controller/login')
 
 
-router.get('/', getItems)
+router.get('/', getLogin)
 
-router.get('/:id', getItem)
 
-router.post('/',  createItem)
-
-router.patch('/:id', updateItem)
-
-router.delete('/:id', deleteItem)
+router.post('/',  postLogin)
 
 
 module.exports = router

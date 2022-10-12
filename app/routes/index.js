@@ -15,7 +15,6 @@ fs.readdirSync(pathRouter).filter((file) => {
     const skip = ['index'].includes(noExt)
     if (!skip){
         router.use(`/${noExt}`, require(`./${noExt}`))
-        console.log('--->', noExt)
     }
 })
 

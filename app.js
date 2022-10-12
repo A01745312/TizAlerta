@@ -1,33 +1,22 @@
 require('dotenv').config()
 
-
-// Rutas absolutas
-const path = require('path');
-
-
+const { DBConnect } = require('./config/mysql')
 const express = require('express');
 const cors = require('cors')
-const { dirname } = require('path');
-const bodyParser = require('body-parser');
-const { get } = require('http');
-const cookieParser = require('cookie-parser');
 
+
+// ********  PUERTO  *********
 const PORT = process.env.PORT || 8080
 
-const {DBConnect} = require('./config/mysql')
+
+// ******* LLAMA ARCHIVO DE CONEXIÓN CON BD ***********
+//const {DBConnect} = require('./config/mysql')
 
 
 
-// create server
+// ********* CREANDO SERVIDOR  **********
 const app = express();
 
-
-
-// Middleware 
-/*app.use(express.static(path.join(__dirname, 'public')));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:true}));
-app.use(cookieParser());*/
 
 
 // *******   MIDDLEWARE  **********
@@ -38,39 +27,17 @@ app.use('/tizalerta', require('./app/routes'))
 
 
 
-// Conexión a servidor nodemon
+// ***************  LLAMA FUNCIÓN DE CONEXIÓN CON BD  *************
 
-DBConnect()
+//DBConnect()
+
+// ************** VERIFICAR CONEXIÓN CON SERVIDOR  ***************
 
 app.listen(PORT,()=> {
     console.log("Servidor en línea")
 })
 
-
 /*
-
-// Connect Database
-
- const connection = mysql.createConnection({
-    host: "localhost",
-    database: 'tizalertap',
-    password: '',
-    user: 'root'
-});
-
-connection.connect((error) => {
-  if (error) throw error;
-  console.log("Connected to database " );
-});
-
-
-
-
-
-
-app.engine('html',require('ejs').renderFile);
-app.set('view engine', 'ejs');
-
 
 // Rutas asignadas
 
@@ -104,8 +71,6 @@ const hora = fecha_hora.getHours() + ':' + fecha_hora.getMinutes() + ':' + fecha
 app.post("/login", (req, res) => {
     const usuario = req.body.user;
     const contraseña = req.body.password;
-    /* connection.query('SELECT * FROM usuario WHERE Matricula = ?', [usuario] , (error,results) =>{
-    console.log(results);}) /
     if(usuario && contraseña){
         console.log('Empezando la conexión')
         connection.query('SELECT * FROM usuario WHERE Matricula = ?',[usuario], (error,results) =>{
