@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,81 +25,53 @@
     <link href="css/normalize.css">
 
 </head>
+
 <body>
     <div class="hero-evolution">
-        <form action="/reportes" method="post"> <!--
-    !---------------------------------------------------- Nombre de notificación--        
-            <div class="inGrup">
-                <label for="">Título de Notificación: </label>
-                <input type="text" id="notificacion" required>
-                <span class="fl"></span>
+        <h1 class="titulo"> Registro de Alerta </h1>
+        <form action="/reportes" method="post"> <!-------------------------------->
+            <div class="main-user">
+                <div class="user-box">
+                    <label for="nameUsuario">Título: </label>
+                    <input type="text" class="form-control" id="notificacion" name="notificacion" placeholder="notificación" required> <!-- NO MOVER NADA -->
+                </div>
                 
-            </div>
-    !--------------------------------------------------------------------------------
-    
-    !---------------------------------------------------- Tipo de notificación--
-            <div class="inGrup">
+                <div class="user-box">
+                    <label for="userUsuario">Descripción: </label>
+                    <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="descripcion" required> <!-- NO MOVER NADA -->
+                </div>
+
                 
-                <label for="" class="flabel">Tipo de Notificación: </label>
-                <input type="text" required>
-                <span class="fl"></span>
-            </div>
-            <div class="custom-select">
-                <select class="dropdown" id="tipo" name="type">
-                    <option value="select">-</option>
-                    <option value="sismo">Sismo</option>
-                    <option value="inundacion">Inundacion</option>
-                    <option value="clima">Clima</option>
-                </select>
-            </div>
-    !--------------------------------------------------------------------------------
-
-
-    
-    !---------------------------------------------------- Descripción--
-            <div class="inGrup">
-                <label for="descripcion" class="flabel"> Descripcion: </label>
-                <textarea id="descripcion" rows="8" required></textarea>
-                
-            </div>
-    !-------------------------------------------------------------------------------- -->
-
-    <label for="nameUsuario">Full Name</label>
-    <input type="text" class="form-control" id="notificacion" name="notificacion" placeholder="noti" required>
-    <label for="userUsuario">User name:</label>
-    <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="desc" required>
-    <label for="genderUser">Gender: </label>
-    <select class = "dropdown" id="tipo" name="tipo" required >
-        <option>Select gender</option>
-        <option value="Sismo">Female</option>
-        <option value="Male">Male</option>
-        <option value="Non-binary">Non-binary</option>
-        <option value="Other">Other</option>
-        <option value="Prefer not to say">I prefer not to say</option>
-    </select>
-            <button type="submit">Enviar</button>
-
-
-
-            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
-            <if(typeof alert != "undefined"){ >
-                <script>
-                    Swal.fire({
-                        title: '<%= alertTitle %>',
-                        text: '<%= alertMessage %>',
-                        icon: '<%= alertIcon %>',
-                        showConfirmButton: <%= showConfirmButton %> ,
-                        timer: <%= timer %>
-                        }).then(()=>{
-                            window.location='/<%= ruta %>'
-                        })
-                       
-                </script>
-                
+                <div class="user-box-g">
+                    <span class="gT"> Tipo: </span>
+                    <!-------------------------------NO MOVER----------------------------------->
+                    <select class = "dropdown" id="tipo" name="tipo" required >
+                        <option>Tipo de alerta: </option>
+                        <option value="sismo">Sismo</option>
+                        <option value="inundacion">Inundación</option>
+                        <option value="clima">Clima</option>
+                    </select>
+                    <!-------------------------------NO MOVER----------------------------------->
+                </div>
+                <div class="button-edition">
+                    <button type="submit">Enviar</button>
+                        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                    
+                            <if(typeof alert != "undefined"){ >
+                                <script>
+                                    Swal.fire({
+                                        title: '<%= alertTitle %>',
+                                        text: '<%= alertMessage %>',
+                                        icon: '<%= alertIcon %>',
+                                        showConfirmButton: <%= showConfirmButton %> ,
+                                        timer: <%= timer %>
+                                        }).then(()=>{
+                                            window.location='/<%= ruta %>'
+                                        })
+                                </script>
+                </div>
+            </div>        
         </form>
-
     </div>
-    
 </body>
 </html>
