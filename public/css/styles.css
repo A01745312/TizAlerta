@@ -181,13 +181,16 @@ h1{
     background-color: var(--secundario);
     height: 150px;
     margin-bottom: 15px;
-    /*background-image: url(../img/LogoTiz.jpeg); /*Imagen pendiente*/
+    background-image: url(../img/TizTitulo.png); /*Imagen pendiente*/
     background-size: cover;
     border-radius: 15px 15px 0 0;
-} 
+}
+
+
 
 .card h2 {
     padding: 10px;
+    text-align: center;
 }
 
 .card p {
@@ -208,12 +211,19 @@ h1{
 
 .main {
     width: 100%;
-    height: 80vh; /*separación entre secciones*/
+    height: 60vh; /*separación entre secciones*/
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     /*background-color: var(--morado);*/
+}
+
+.mueve{
+    
+    align-content: center;
+    font-size: xx-large;
+    margin: 50px;
 }
 
 .profile-card{
