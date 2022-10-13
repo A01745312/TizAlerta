@@ -10,9 +10,8 @@ const path = require('path')
 
 // ******** CONEXION CON LA SUSCRIPCION DE LA APP *****************
 const FCM = require('fcm-node');
-const serverKey = 'AAAAwJ0hCa4:APA91bEjbMn5zY7xygpQXitNQlQnBaWSPhZ651UATRYooLXnrtKDAcyEsNUPjCAtwB2IQo71vHHByoHuJs9xQkaL87ufx4ScJO9yirNiojIPJPVSoCTo9tGWl2544otDSWmlUGjAIjc9';
+const serverKey = 'AAAAxvx91D8:APA91bGTGcKf5lbDyrv4V3pNzBFcMYYwPvgzo8bhi98o-0NveANFbdnbQ5FQpwkFi0Ze5apXdQ18lqGmO9fl90jDKlfk-5psm_nakzcKxtirwyJoBPQJpVUs5V4otEruiDokHzA0fr5N';
 const fcm = new FCM(serverKey);
-
 
 // ********  PUERTO  *********
 const PORT = process.env.PORT || 8080
@@ -63,9 +62,6 @@ app.get('/reportes', (req, res) => {
 let fecha_hora = new Date(); // Crea un objeto fecha
 const fecha = fecha_hora.getFullYear() + '-' + fecha_hora.getMonth() + '-' + fecha_hora.getDate() // Obtiene la fecha por partes
 const hora = fecha_hora.getHours() + ':' + fecha_hora.getMinutes() + ':' + fecha_hora.getSeconds() // Obtiene la hora por partes
-
-
-
 
 /* ------------------ LOGIN -------------------- */
 
@@ -155,7 +151,7 @@ app.post("/reportes", (req,res) => {
         
             const message = {
         
-                to:'dz_Gc-dZS52337nXTX88sa:APA91bHI3jlKuUcA6OFOmI6YlmblAowiTl13kyFMDLo-ILgtc9j-NWkAyJG310Vqbx6D33VI-7Tv5OjKcElueF1lEseY8feHu1dTWOirBwt1cqGbovCEqLmzaRZeg8II96cddP0hKIoi',
+                to:'/topics/alertasAtizapan',
                 notification: {
                     title: title,
                     body: desc
@@ -202,7 +198,7 @@ app.post("/reportes", (req,res) => {
         
             const message = {
         
-                to:'dz_Gc-dZS52337nXTX88sa:APA91bHI3jlKuUcA6OFOmI6YlmblAowiTl13kyFMDLo-ILgtc9j-NWkAyJG310Vqbx6D33VI-7Tv5OjKcElueF1lEseY8feHu1dTWOirBwt1cqGbovCEqLmzaRZeg8II96cddP0hKIoi',
+                to:'/topics/alertasAtizapan',
                 notification: {
                     title: title,
                     body: desc
@@ -215,7 +211,7 @@ app.post("/reportes", (req,res) => {
             
             fcm.send(message, function (err, response) {
                 if (err) {
-                    console.log("Error al enivar mensaje" + err);
+                    console.log("Error al enviar mensaje" + err);
                     console.log("Respuesta: " + response);
                 } else {
                     console.log("Mensaje enviado correctamente: ", response);
@@ -249,7 +245,7 @@ app.post("/reportes", (req,res) => {
         
             const message = {
         
-                to:'dz_Gc-dZS52337nXTX88sa:APA91bHI3jlKuUcA6OFOmI6YlmblAowiTl13kyFMDLo-ILgtc9j-NWkAyJG310Vqbx6D33VI-7Tv5OjKcElueF1lEseY8feHu1dTWOirBwt1cqGbovCEqLmzaRZeg8II96cddP0hKIoi',
+                to:'/topics/alertasAtizapan',
                 notification: {
                     title: title,
                     body: desc
