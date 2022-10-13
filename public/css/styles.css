@@ -331,6 +331,10 @@ h1{
     width: 250px;
 }
 
+.ppF .g1 .box h2 {
+    color: var(--blanco);
+}
+
 .ppF .g2 .box h2{
     color: var(--blanco);
     margin-bottom: 25px;
