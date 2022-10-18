@@ -14,6 +14,7 @@
     --forms: #5757577e;
     --azulMarino: #183aff;
     --traspazo: rgba(0, 0, 0, 0.5);
+    --azulDelux: rgb(0, 110, 255);
 
 }
 
@@ -21,9 +22,9 @@
 *{
     margin: 0;
     padding: 0;
-    /*
-    font-family: 'poppins', sans-serif;
-    */
+    
+    font-family: 'Montserrat', sans-serif;
+    
     box-sizing: border-box;
 }
 
@@ -32,9 +33,59 @@ body {
     height: 100vh;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,5)), url(../img/TizTitulo.png);
+    background-image: url(../img/TizTitulo.png), linear-gradient(to right, rgba(255, 148, 60, 0.918), rgba(255, 124, 17, 0.447));
     background-size: cover;
     
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline:0;
+    box-shadow: none;
+    border: 0!important;
+    background: var(--blanco);
+    background-image: none;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+.select {
+    position: relative;
+    display: flex;
+    width: 20em;
+    height: 3em;
+    line-height: 3;
+    background: var(--azulDelux); /*Fondo del select*/
+    overflow: hidden;
+    border-radius: .25em;
+}
+
+select {
+    flex: 1;
+    padding: 0 .5em;
+    color: var(--black); /*Texto en negro*/
+    cursor: pointer;
+}
+.select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    background: var(--gris); /*Botón de flecha*/
+    cursor: pointer;
+    pointer-events: none;
+    transition: .25s all ease;
+}
+
+.select:hover::after {
+    color: var(--gris);
+
 }
 
 .hero-evolution {
