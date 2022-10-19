@@ -125,6 +125,9 @@ app.post("/reportes", (req,res) => {
     const titulo = req.body.notificacion;
     const descripcion = req.body.descripcion;
     const tipo = req.body.tipo;
+    const latitude = req.body.lat;
+    console.log(latitude);
+    const longitude = req.body.long;
     if (tipo == "sismo"){
         query_id_entrada = DBConnect.query('SELECT * FROM entrada ORDER BY id DESC', (error, results) => {
             id_entrada = results[0].id;
@@ -134,7 +137,9 @@ app.post("/reportes", (req,res) => {
             fecha: fecha,
             hora: hora,
             titulo: titulo,
-            descripcion: descripcion
+            descripcion: descripcion,
+            latitude: latitude,
+            longitude: longitude
         }),
         res.render ('report.html' , {
             alert: true,
@@ -181,7 +186,9 @@ app.post("/reportes", (req,res) => {
             fecha: fecha,
             hora: hora,
             titulo: titulo,
-            descripcion: descripcion
+            descripcion: descripcion,
+            latitude: latitude,
+            longitude: longitude
         }),
         res.render ('report.html' , {
             alert: true,
@@ -228,7 +235,9 @@ app.post("/reportes", (req,res) => {
             fecha: fecha,
             hora: hora,
             titulo: titulo,
-            descripcion: descripcion
+            descripcion: descripcion,
+            latitude: latitude,
+            longitude: longitude
         }),
         res.render ('report.html' , {
             alert: true,
