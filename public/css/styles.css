@@ -122,6 +122,10 @@ h1{
     .boton {
         width: auto;
     }
+    .contenido-hero h2 {
+        font-size: 5rem;
+        text-align: center;
+    }
 }
 
 
@@ -162,6 +166,10 @@ h1{
     align-items: flex-end;
 }
 
+.contenido-hero h2 {
+    font-size: 5rem;
+}
+
 /*--------------------------------------------------------------------Card */
 
 .cempo-container {  
@@ -179,10 +187,10 @@ h1{
 }
 
 .card-image {
-    background-color: var(--secundario);
+    background-color: var(--blanco);
     height: 150px;
     margin-bottom: 15px;
-    background-image: url(../img/TizTitulo.png); /*Imagen pendiente*/
+    background-image: url(../img/TizAlertaApp.png); /*Imagen pendiente*/
     background-size: cover;
     border-radius: 15px 15px 0 0;
 }
@@ -394,6 +402,13 @@ h1{
     .main {
         height: 300vh;
     }
+}
+
+@media screen and (width: 768px) {
+    .main {
+            height: 100vh;
+        }
+
 }
 
 
