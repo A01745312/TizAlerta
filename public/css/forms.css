@@ -33,8 +33,11 @@ body {
     height: 100vh;
     justify-content: center;
     align-items: center;
-    background-image: url(../img/TizTitulo.png), linear-gradient(to right, rgba(255, 148, 60, 0.918), rgba(255, 124, 17, 0.447));
-    background-size: cover;
+    background-image: url(../img/TizCenter.png);
+    background-size: 80rem;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
     
 }
 

@@ -58,7 +58,6 @@
                 /*********************************************************************/
                 document.getElementById('lat').innerHTML = place.geometry.location.lat();
                 document.getElementById('long').innerHTML = place.geometry.location.lng();
-                jQuery
             });
         }
 
@@ -105,10 +104,16 @@
                     
                 </script>
 
-                <input id="pac-input" class="controls" type="text" placeholder="Enter a location">
-                <input id="lat" name="lat">
+                <div class="user-box">
+                    <label for="userUsuario">Localización: </label>
+                    <input id="pac-input" class="controls form-control" type="text" placeholder="Enter a location">
+                </div>
 
-                <input id="long" name="long">
+                <div class="user-box">
+                    <input id="lat" name="lat">
+
+                    <input id="long" name="long">
+                </div>
 
 
                 <!-- Botón -------------------------------------------------->

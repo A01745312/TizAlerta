@@ -105,8 +105,8 @@ app.post("/login", (req, res) => {
                     })
                     res.render ('login.html' , {
                         alert: true,
-                        alertTitle: "Login",
-                        alertMessage: "Successful Welcome!",
+                        alertTitle: "Inicio de sesión exitoso",
+                        alertMessage: "Bienvenido a TizAlerta",
                         alertIcon: 'success',
                         showConfirmButton: false,
                         timer: 1500,
@@ -143,8 +143,8 @@ app.post("/reportes", (req,res) => {
         }),
         res.render ('report.html' , {
             alert: true,
-            alertTitle: "Sent",
-            alertMessage: "Successful Welcome!",
+            alertTitle: "Reporte de inundación generado",
+            alertMessage: "Enviado exitosamente",
             alertIcon: 'success',
             showConfirmButton: false,
             timer: 1500,
@@ -192,8 +192,8 @@ app.post("/reportes", (req,res) => {
         }),
         res.render ('report.html' , {
             alert: true,
-            alertTitle: "Sent",
-            alertMessage: "Successful Welcome!",
+            alertTitle: "Reporte de inundación generado",
+            alertMessage: "Enviado exitosamente",
             alertIcon: 'success',
             showConfirmButton: false,
             timer: 1500,
@@ -241,8 +241,8 @@ app.post("/reportes", (req,res) => {
         }),
         res.render ('report.html' , {
             alert: true,
-            alertTitle: "Sent",
-            alertMessage: "Successful Welcome!",
+            alertTitle: "Reporte de clima generado",
+            alertMessage: "Enviado exitosamente",
             alertIcon: 'success',
             showConfirmButton: false,
             timer: 1500,
