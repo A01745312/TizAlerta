@@ -89,7 +89,7 @@ app.post("/login", (req, res) => {
             if(contraseña != pass){
                 res.render ('login.html' , {
                     alert: true,
-                    alertTitle: "Incorrect user / password",
+                    alertTitle: "Contraseña incorrecta",
                     alertMessage: "",
                     alertIcon: 'error',
                     showConfirmButton: true,
